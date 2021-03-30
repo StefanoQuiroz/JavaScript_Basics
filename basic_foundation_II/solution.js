@@ -157,4 +157,4 @@ function scaleArray(numArr, num){
     return numArr;
 }
 
-//console.log(scaleArray([1,2,3], 3));
+console.log(scaleArray([1,2,3], 3));
