@@ -24,3 +24,16 @@ for(var i in users){
     console.log(`${users[i].name} - ${users[i].age}`);
 }
 // ¿Cómo harías para imprimir el nombre de los mayores de edad?
+function printAge(users){
+    var maxAge = users[0].age;
+    var nameUser= users[0].name;
+    for(var j in users){
+        if(users[i].age > maxAge){
+            maxAge = users[i].age;
+            nameUser = users[i].name;
+        }
+    }
+    return [nameUser, maxAge];
+}
+console.log(printAge(users));
+// END
