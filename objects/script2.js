@@ -60,21 +60,29 @@ const stefan = new Persona('Stefano', 27, 'masculino', ['correr', 'nadar']);
 // console.log(myObject.a);
 
 // Enumerable
-var myObj = {
-    a: 1,
-    b: 2,
-    c: 3
-  };
+// var myObj = {
+//     a: 1,
+//     b: 2,
+//     c: 3
+//   };
   
-  Object.defineProperty(myObj, 'd', {
-    value: 4,
-    writable: true,
-    configurable: true,
-    enumerable: true
+//   Object.defineProperty(myObj, 'd', {
+//     value: 4,
+//     writable: true,
+//     configurable: true,
+//     enumerable: true
+//   });
+  
+//   console.log(myObj); // {a: 1,b: 2,c: 3}
+  
+//   for(var item in myObj) {
+//     console.log(item);
+//   }
+
+// Immutable.js
+require(['./immutable.min.js'], function (Immutable) {
+    var map1 = Immutable.Map({ a: 1, b: 2, c: 3 });
+    var map2 = map1.set('b', 50);
+    map1.get('b'); // 2
+    map2.get('b'); // 50
   });
-  
-  console.log(myObj); // {a: 1,b: 2,c: 3}
-  
-  for(var item in myObj) {
-    console.log(item);
-  }
