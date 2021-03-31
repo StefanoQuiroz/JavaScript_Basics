@@ -1,5 +1,6 @@
 // medium entendiendo javascript
 // Objetos literales o declarativos sin instanciar o hacer un constructor
+// () => {this.key no usar} function() {usar this.key}
 const stefano = {
     nombre : 'Stefano',
     edad: 27,
@@ -10,3 +11,4 @@ const stefano = {
 
 console.log(stefano.hablar());
 // Objetos construidos
+function Persona(nombre)
