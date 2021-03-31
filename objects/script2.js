@@ -36,9 +36,11 @@ const myObj = {
 
 // Acceder a propiedades Notación . & Notacion['key' || var] var = 'key'
 
-console.log(myObj.nombre, myObj["nombre"]);
-const propiedad = 'nombre';
-console.log(myObj[propiedad]);
+// console.log(myObj.nombre, myObj["nombre"]);
+// const propiedad = 'nombre';
+// console.log(myObj[propiedad]);
 
 // Atributos de las propiedades
 
+var atributos = Object.getOwnPropertyDescriptor(myObj, 'hablar');
+console.log(atributos);
