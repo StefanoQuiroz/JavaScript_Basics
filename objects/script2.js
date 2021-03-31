@@ -29,7 +29,16 @@ const myObj = {
     hablar: function(){return `${this.nombre}`;}
 }
 
-const myFunc = myObj.hablar;
-myObj.hablar = null;
-console.log(myObj.hablar);
-console.log(myFunc);
+// const myFunc = myObj.hablar;
+// myObj.hablar = null;
+// console.log(myObj.hablar);
+// console.log(myFunc);
+
+// Acceder a propiedades Notación . & Notacion['key' || var] var = 'key'
+
+console.log(myObj.nombre, myObj["nombre"]);
+const propiedad = 'nombre';
+console.log(myObj[propiedad]);
+
+// Atributos de las propiedades
+
