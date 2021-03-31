@@ -24,10 +24,10 @@ const stefan = new Persona('Stefano', 27, 'masculino', ['correr', 'nadar']);
 // console.log(stefan.hablar());
 
 // Contenido
-const myObj = {
-    nombre: 'Jeisson',
-    hablar: function(){return `${this.nombre}`;}
-}
+// const myObj = {
+//     nombre: 'Jeisson',
+//     hablar: function(){return `${this.nombre}`;}
+// }
 
 // const myFunc = myObj.hablar;
 // myObj.hablar = null;
@@ -42,5 +42,39 @@ const myObj = {
 
 // Atributos de las propiedades
 
-var atributos = Object.getOwnPropertyDescriptor(myObj, 'hablar');
-console.log(atributos);
+// var atributos = Object.getOwnPropertyDescriptor(myObj, 'hablar');
+// console.log(atributos);
+
+// Establecer Atributos
+
+// var myObject = {};
+// Object.defineProperty(myObject, 'a', {
+//     value: 2,
+//     writable: true, //si se modifica o no 
+//     enumerable: true,
+//     configurable: true
+// });
+
+// console.log(myObject.a);
+// myObject.a = 3;
+// console.log(myObject.a);
+
+// Enumerable
+var myObj = {
+    a: 1,
+    b: 2,
+    c: 3
+  };
+  
+  Object.defineProperty(myObj, 'd', {
+    value: 4,
+    writable: true,
+    configurable: true,
+    enumerable: true
+  });
+  
+  console.log(myObj); // {a: 1,b: 2,c: 3}
+  
+  for(var item in myObj) {
+    console.log(item);
+  }
