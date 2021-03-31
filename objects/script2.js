@@ -21,4 +21,15 @@ function Persona(nombre, edad, sexo, pasatiempos){
 
 const stefan = new Persona('Stefano', 27, 'masculino', ['correr', 'nadar']);
 
-console.log(stefan.hablar());
+// console.log(stefan.hablar());
+
+// Contenido
+const myObj = {
+    nombre: 'Jeisson',
+    hablar: function(){return `${this.nombre}`;}
+}
+
+const myFunc = myObj.hablar;
+myObj.hablar = null;
+console.log(myObj.hablar);
+console.log(myFunc);
