@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Copy Reverse Engineerging Blocks Game By Choi">
+    <title>Blocks Game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: gray;
+        }
+        .row div{
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+        }
+        .white{
+            background-color:white;
+        }
+        .red{
+            background-color:red;
+        }
+        .blue{
+            background-color:blue;
+        }
+        .green{
+            background-color:green;
+        }
+        .black{
+            background-color:black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        //matrix[i][j] position for colors in object colors
+        var matrix = [
+            [0,0,0,0,0,0,0,0,0,0],
+            [0,1,0,1,0,1,2,2,0,0],
+            [0,0,1,1,0,2,2,2,0,0],
+            [0,0,1,1,0,0,0,0,0,0],
+            [0,0,1,1,0,0,0,0,0,0],
+            [0,0,3,3,3,3,3,3,0,0],
+            [0,0,3,3,3,3,3,3,0,0],
+            [0,0,3,3,3,3,3,3,0,0]
+        ];
+        //color with matrix
+        var colors = {
+            0: "white",
+            1: "red",
+            2: "blue",
+            3: "green",
+            4: "black"
+        }
+        //create the matrix of colors
+        function drawMatrix(){
+            var result = "";
+            for(var i=0; i<matrix.length; i++){
+                result += "<div class='row'>"
+                for(var j=0; j<matrix[i].length; j++){
+                    result += "<div class='"+colors[matrix[i][j]]+"'></div>"
+                }
+                result += "</div>"
+            }
+            //console.log(result)
+            document.getElementById("container").innerHTML = result; 
+        }
+        document.onclick = function(e){
+            //coords change with margin: 0 auto in #container
+            var x= Math.floor(e.x/50);
+            var y= Math.floor(e.y/50);
+            //console.log("Replace color_original", colors[matrix[y][x]], "new color begin in", x, "and: ", y);
+            //fill(x, y, original_color, new_color)
+            fill(x,y, matrix[y][x], 4);
+        }
+        // change the orignal_color to new_color and
+        function fill(x,y,original_color, new_color){
+            //recursive in action
+            if( y<0 || y>=matrix.length || x<0 || x>=10){
+                return false;
+            }
+            if( matrix[y][x] != original_color){
+                return false;
+            }
+
+            //original_color = new_color
+            matrix[y][x] = new_color;
+            
+            //Recursive call
+            fill(x+1, y, original_color, new_color);
+            fill(x-1, y, original_color, new_color);
+            fill(x, y+1, original_color, new_color);
+            fill(x, y-1, original_color, new_color);
+            drawMatrix();   
+        }
+        drawMatrix();
+    </script>
+    
+</body>
+</html>
